@@ -1,0 +1,11 @@
+{
+    "go.goroot": "/Users/alvin/go/go1.15.5",
+    "go.gopath": "/Users/alvin/go/go1.15.5/bin/",
+    "go.inferGopath": false,
+    "go.autocompleteUnimportedPackages": true,
+    "go.gocodePackageLookupMode": "go",
+    "go.gotoSymbol.includeImports": true,
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+    "go.docsTool": "gogetdoc",
+}
