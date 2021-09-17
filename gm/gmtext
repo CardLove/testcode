@@ -1,0 +1,28 @@
+package gm
+
+import "fmt"
+// 鲜花榜数据库测试
+func (*GmCommonServices) AddData(player *Player, args []string) bool {
+	playerMgr := GetReceiveFlowerMgr()
+	playerMgr.MgrData.RangeAddItem(func(key string, value *dao.ItemsDao) bool {
+		fmt.Println("22222value.Item", value.Item)
+		fmt.Println("22222value.Time", value.Time)
+		fmt.Println("22222value.Name", value.Name)
+		fmt.Println("22222value.Uid", value.Uid)
+		return true
+	})
+	playerMgr.StorePlayerData(util.Int64ToString(1234), map[int32]int32{11: 11}, 12, 31, "12")
+	playerMgr.MgrData.RangeAddItem(func(key string, value *dao.ItemsDao) bool {
+		fmt.Println("3333", value)
+		value.RangeItem(func(key1 string, value1 int32) bool {
+			fmt.Println("11111", key1, value1)
+			return true
+		})
+		return true
+	})
+	playerMgr.Save()
+	fmt.Println("")
+
+	return true
+
+}
