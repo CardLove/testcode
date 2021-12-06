@@ -2,60 +2,76 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"math/rand"
+	"time"
 )
 
-// 遍历时删除所有的偶数,结果:确实删除了所有的偶数
-func fun1() {
-	x := sync.Map{}
-	// 构建
-	for i := 0; i < 100; i++ {
-		x.Store(i, i)
-	}
-	// 遍历时删除偶数
-	x.Range(func(k, v interface{}) bool {
-		if k.(int)%2 == 0 {
-			x.Delete(k)
-		}
-		return true
-	})
-	// 遍历打印剩下的
-	cout := 0
-	x.Range(func(k, v interface{}) bool {
-		fmt.Println(k, v)
-		cout++
-		return true
-	})
-	// 会发现是50个,说明删除了所有的偶数
-	fmt.Println("删除偶数后,剩余元素数,cout:", cout)
+type ServiceData struct {
+	ch   chan int // 用来 同步的channel
+	data []int    // 存储数据的slice
 }
 
-// 遍历时删除所有元素,结果:确实删除了所有的元素
-func fun2() {
-	x := sync.Map{}
-	// 构建
-	for i := 0; i < 100; i++ {
-		x.Store(i, i)
+func (s *ServiceData) Schedule() {
+	// 从 channel 接收数据
+	for i := range s.ch {
+		s.data = append(s.data, i)
 	}
-	// 遍历时删除偶数
-	x.Range(func(k, v interface{}) bool {
-		x.Delete(k)
-		return true
-	})
-	// 遍历打印剩下的
-	cout := 0
-	x.Range(func(k, v interface{}) bool {
-		fmt.Println(k, v)
-		cout++
-		return true
-	})
-	// 会发现是0个,说明删除了所有的元素
-	fmt.Println("全部删除后,剩余元素数,cout:", cout)
 }
+
+func (s *ServiceData) Close() {
+	// 最后关闭 channel
+	close(s.ch)
+}
+
+func (s *ServiceData) AddData(v int) {
+	s.ch <- v // 发送数据到 channel
+}
+
+func NewScheduleJob(size int, done func()) *ServiceData {
+	s := &ServiceData{
+		ch:   make(chan int, size),
+		data: make([]int, 0),
+	}
+
+	go func() {
+		// 并发地 append 数据到 slice
+		s.Schedule()
+		done()
+	}()
+
+	return s
+}
+
 func main() {
-	// 遍历时删除一半
-	fun1()
+	arr := make([]int32, 0)
 
-	//
-	fun2()
+	go func() {
+		for {
+			arr = append(arr, rand.Int31n(444))
+			time.Sleep(1 * time.Second)
+		}
+	}()
+
+	go func() {
+		for {
+			for i, value := range arr {
+				fmt.Println("1&:", i, value)
+			}
+			time.Sleep(1 * time.Second)
+			fmt.Println("1 arr len ", len(arr))
+
+		}
+	}()
+
+	go func() {
+		for {
+			for i, value := range arr {
+				fmt.Println("2&:", i, value)
+			}
+			fmt.Println("2 arr len ", len(arr))
+			time.Sleep(1 * time.Second)
+		}
+	}()
+
+	time.Sleep(3 * time.Minute)
 }
