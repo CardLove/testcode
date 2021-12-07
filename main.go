@@ -2,21 +2,17 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"reflect"
+	"time"
 )
 
 func main() {
 	now := time.Now()
 	h, _ := time.ParseDuration("24h")
 	fmt.Println(int32(now.Add(2 * h).Unix()))
-	var num int32  = 23
-	var num1 int32  = 2
+	var num int32 = 23
+	var num1 int32 = 2
 
-	fmt.Println(reflect.TypeOf(num * num1 + int32(3)))	
-
-
-
-
+	fmt.Println(reflect.TypeOf(num*num1 + int32(3)))
 
 }
