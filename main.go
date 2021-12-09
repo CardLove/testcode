@@ -13,7 +13,7 @@ func main() {
 	var num int32 = 23
 	var num1 int32 = 2
 
-	//sdsdds
+	//sdsdds   ddd
 	fmt.Println(reflect.TypeOf(num*num1 + int32(3)))
 
 }
