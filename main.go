@@ -122,5 +122,6 @@ func main() {
 	fmt.Println(bm.GetData())
 
 	fmt.Println("sds点单独ddd")
+	fmt.Println("1")
 
 }
