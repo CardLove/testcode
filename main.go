@@ -120,4 +120,6 @@ func main() {
 	fmt.Println(bm.Exists(7), bm.Exists(10))
 
 	fmt.Println(bm.GetData())
+
+	fmt.Println("sdsddd")
 }
