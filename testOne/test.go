@@ -15,11 +15,19 @@ func spilt(r rune) bool {
 	return false
 }
 
+func aa(a []int) {
+	a = append(a, 3)
+	fmt.Println(a)
+}
 func main() {
-	a := byte(3)
-	b := byte(1)
 
-	fmt.Println(a | b)
+	c := make([]int, 0)
+	c = append(c, 1)
+	c = append(c, 2)
+	aa(c)
+	fmt.Println(c)
+
+	//fmt.Println(a | b)
 	//println("hello world")
 	//buff1 := make([]byte, 2) // 创建一个切片
 	//writeUInt16(buff1, uint16(12))

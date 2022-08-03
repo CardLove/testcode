@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/marmotedu/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/marmotedu/sample-code" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/novalagung/gubrak" vcs="Git" />
+  </component>
+</project>
