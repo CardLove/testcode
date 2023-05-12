@@ -1,0 +1,8 @@
+{
+    "objArray": [
+      {"name": "obj1", "value": 111},
+      {"name": "obj111", "value": 111},
+      {"name": "obj2", "value": 2}
+    ],
+    "sliceArray": [1, 2, 3, 4, 5]
+}

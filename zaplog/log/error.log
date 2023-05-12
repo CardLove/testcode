@@ -1,0 +1,4 @@
+2023-05-11T03:34:06.421-0700	[31mERROR[0m	zaplog/main.go:66	hello error
+2023-05-11T03:34:06.421-0700	[31mERROR[0m	zaplog/main.go:66	hello error
+2023-05-11T03:34:06.421-0700	[31mERROR[0m	zaplog/main.go:61		{"error:": "runtime error: index out of range [3] with length 0"}
+2023-05-11T03:34:06.421-0700	[31mERROR[0m	zaplog/main.go:61		{"error:": "runtime error: index out of range [3] with length 0"}

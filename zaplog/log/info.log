@@ -1,0 +1,2 @@
+2023-05-11T03:34:06.421-0700	[34mINFO[0m	zaplog/main.go:64	hello info
+2023-05-11T03:34:06.421-0700	[35mDEBUG[0m	zaplog/main.go:65	hello debug

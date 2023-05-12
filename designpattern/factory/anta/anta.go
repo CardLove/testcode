@@ -1,6 +1,6 @@
 package anta
 
-import "test/designpattern/factory/clother"
+import "testcode/designpattern/factory/clother"
 
 type Anta struct {
 	clother.Clother

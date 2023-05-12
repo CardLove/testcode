@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"test/designpattern/factory/anta"
-	"test/designpattern/factory/clother"
+	"testcode/designpattern/factory/anta"
+	"testcode/designpattern/factory/clother"
 )
 
 func MakeClother(clotherType string) (clother.Iclother, error) {
