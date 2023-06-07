@@ -1,0 +1,16 @@
+//protoc --go-grpc_out=. filetransfer.proto
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package filetransfer;
+option go_package = "./";
+
+message FileRequest {
+string filename = 1;
+bytes content = 2;
+}
+
+service FileTransferService {
+rpc UploadFile(stream FileRequest) returns (google.protobuf.Empty);
+}
